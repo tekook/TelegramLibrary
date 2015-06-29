@@ -1,7 +1,7 @@
 # PHP-TelegramLibrary
 PHP Library for the new Telegram Bot API
 
-* Event based programming for the new bot api (https://core.telegram.org/bots/api)
+* Event based programming for the [new bot api](https://core.telegram.org/bots/api)
 * Closures
 * Composer Ready 
 * Fully OOP
@@ -42,3 +42,6 @@ $eventHandler->addHook(TelegramLibrary\Events::TEXT,
 
 $telegram->pushUpdate($r);
 ````
+
+##Author##
+[Julian Tekook](www.dj-digital.net)
