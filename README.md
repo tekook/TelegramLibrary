@@ -10,7 +10,7 @@ PHP Library for the new Telegram Bot API
 
 ####Example####
 
-´use Tekook\TelegramLibrary;
+````use Tekook\TelegramLibrary;
 
 $telegram = new TelegramLibrary\TelegramBotApi("<your token>");
 
@@ -32,4 +32,4 @@ $eventHandler->addHook(TelegramLibrary\Events::TEXT,
     }
 });
 
-$telegram->pushUpdate($r);´
+$telegram->pushUpdate($r);````
