@@ -1,0 +1,22 @@
+{
+    "name": "tekook/telegramlibrary",
+    "description": "PHP Library for the new Telegram Bot API",
+	"keywords": [
+        "telegram",
+        "bot",
+		"new api",
+        "api",
+		"library"
+    ],
+	"homepage": "https://github.com/tekook/TelegramLibrary",
+	"authors": [
+        {
+            "name": "Julian Tekook",
+            "email": "digi@netjumpers.eu",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
