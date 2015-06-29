@@ -8,10 +8,6 @@ PHP Library for the new Telegram Bot API
 * All Methods and Types available
 * Documented
 
-####INFO####
-At the moment only the setWebhook method (https://core.telegram.org/bots/api#setwebhook) of receiving updates is supported.
-Support for getUpdates (https://core.telegram.org/bots/api#getupdates) is comming soon.
-
 ####Usage#####
 Initiate the TelegramBotApi object with your token.
 Register the wanted hook within the event handler
