@@ -48,8 +48,12 @@ class EventHandler
             foreach ($this->events[$message->getEvent()] as $closure) {
                 $closure($message);
             }
-        } elseif($message->isFile() && isset($this->events[Events::ANY_FILE])) {
-            foreach($this->events[Events::ANY_FILE] as $closure) {
+        } elseif ($message->isFile() && isset($this->events[Events::ANY_FILE])) {
+            foreach ($this->events[Events::ANY_FILE] as $closure) {
+                $closure($message);
+            }
+        } elseif (isset($this->events[Events::NOT_REGISTERED])) {
+            foreach ($this->events[Events::NOT_REGISTERED] as $closure) {
                 $closure($message);
             }
         }
