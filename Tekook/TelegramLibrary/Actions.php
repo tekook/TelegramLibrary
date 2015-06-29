@@ -5,8 +5,8 @@
  * @company: NetJumpers.EU
  * @copyright: 2015
  * @created: 28.06.2015 22:56:12
- * $Rev$
- * $Id$
+ * $Rev: 549 $
+ * $Id: Actions.php 549 2015-06-29 19:19:59Z julian $
  */
 
 namespace Tekook\TelegramLibrary;

@@ -5,8 +5,8 @@
  * @company: NetJumpers.EU
  * @copyright: 2015
  * @created: 26.06.2015 20:52:40
- * $Rev$
- * $Id$
+ * $Rev: 549 $
+ * $Id: Contact.php 549 2015-06-29 19:19:59Z julian $
  */
 
 namespace Tekook\TelegramLibrary\Types;
