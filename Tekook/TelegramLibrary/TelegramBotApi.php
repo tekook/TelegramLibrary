@@ -198,6 +198,23 @@ class TelegramBotApi
     }
 
     /**
+     * Use this method to receive incoming updates using long polling. An Array of Update objects is returned.
+     * @param int $offset Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called with an offset higher than its update_id.
+     * @param int $limit Limits the number of updates to be retrieved. Values between 1—100 are accepted. Defaults to 100
+     * @param int $timeout Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling
+     * @return \Tekook\TelegramLibrary\Types\Update
+     */
+    public function getUpdates($offset = 0, $limit = 100, $timeout = 0)
+    {
+        $response = $this->call("getUpdates", ["offset" => $offset, "limit" => $limit, "timeout" => $timeout]);
+        $updates = array();
+        foreach ($response->result as $update) {
+            $updates[] = new Types\Update($update, $this);
+        }
+        return $updates;
+    }
+
+    /**
      * Sends a chat action to the given $chat indicating what the bot is doing right now
      * Should be one of \Tekook\TelegramLibrary\Actions constants
      * @param \Tekook\TelegramLibrary\Types\IChat $chat The recipient
