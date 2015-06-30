@@ -40,7 +40,7 @@ $eventHandler->addHook(TelegramLibrary\Events::TEXT,
     }
 });
 
-$telegram->pushUpdate($r);
+$telegram->pushUpdate();
 ````
 
 ##Author##
