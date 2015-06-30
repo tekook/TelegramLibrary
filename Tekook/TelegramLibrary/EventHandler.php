@@ -5,8 +5,8 @@
  * @company: NetJumpers.EU
  * @copyright: 2015
  * @created: 29.06.2015 12:50:41
- * $Rev: 549 $
- * $Id: EventHandler.php 549 2015-06-29 19:19:59Z julian $
+ * $Rev: 551 $
+ * $Id: EventHandler.php 551 2015-06-30 17:30:46Z julian $
  */
 
 namespace Tekook\TelegramLibrary;
@@ -46,15 +46,15 @@ class EventHandler
 
         if (isset($this->events[$message->getEvent()])) {
             foreach ($this->events[$message->getEvent()] as $closure) {
-                $closure($message);
+                $closure($message, $this->api);
             }
         } elseif ($message->isFile() && isset($this->events[Events::ANY_FILE])) {
             foreach ($this->events[Events::ANY_FILE] as $closure) {
-                $closure($message);
+                $closure($message, $this->api);
             }
         } elseif (isset($this->events[Events::NOT_REGISTERED])) {
             foreach ($this->events[Events::NOT_REGISTERED] as $closure) {
-                $closure($message);
+                $closure($message, $this->api);
             }
         }
     }
