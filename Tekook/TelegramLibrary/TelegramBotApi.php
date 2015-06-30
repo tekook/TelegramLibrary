@@ -5,8 +5,8 @@
  * @company: DJ-Digital.Net
  * @copyright: 2015
  * @created: 26.06.2015 18:10:40
- * $Rev: 549 $
- * $Id: TelegramBotApi.php 549 2015-06-29 19:19:59Z julian $
+ * $Rev: 550 $
+ * $Id: TelegramBotApi.php 550 2015-06-30 09:48:45Z julian $
  */
 
 namespace Tekook\TelegramLibrary;
@@ -162,6 +162,20 @@ class TelegramBotApi
     {
         $myOptions = array_merge($options, ["chat_id" => $chat->getId(), $file->getFileType() => $file->getFileId()]);
         return $this->call("send" . ucfirst($file->getFileType()), $myOptions);
+    }
+
+    /**
+     * Uploads a new file to the given $chat from a file which lays in the filesystem
+     * @param \Tekook\TelegramLibrary\Types\IChat $chat
+     * @param string $fileType filetype to send. E.g. audio, video, photo, etc...
+     * @param string $fileName the ABSOLUTE File Path to the file
+     * @param array $options Optional options
+     * @return \stdClass
+     */
+    public function uploadFile(\Tekook\TelegramLibrary\Types\IChat $chat, $fileType, $fileName, array $options = array())
+    {
+        $myOptions = array_merge($options, ["chat_id" => $chat->getId(), $fileType => "@" . $fileName]);
+        return $this->call("send" . ucfirst($fileType), $myOptions);
     }
 
     /**
