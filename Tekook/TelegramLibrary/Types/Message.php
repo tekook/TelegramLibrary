@@ -5,8 +5,8 @@
  * @company: NetJumpers.EU
  * @copyright: 2015
  * @created: 26.06.2015 21:19:01
- * $Rev: 549 $
- * $Id: Message.php 549 2015-06-29 19:19:59Z julian $
+ * $Rev: 552 $
+ * $Id: Message.php 552 2015-06-30 17:33:30Z julian $
  */
 
 namespace Tekook\TelegramLibrary\Types;
@@ -614,6 +614,18 @@ class Message extends Type implements IMessage
             "reply_to_message_id" => $this->getMessageId()
         ]);
         return $this->api->sendFile($this->getChat(), $file, $myOptions);
+    }
+
+    /**
+     * Uploads a new file to the chat of the mssage from a file which lays in the filesystem
+     * @param string $fileType filetype to send. E.g. audio, video, photo, etc...
+     * @param string $fileName the ABSOLUTE File Path to the file
+     * @param array $options Optional options
+     * @return \stdClass
+     */
+    public function replyUploadFile($fileType, $fileName, array $options = array())
+    {
+        return $this->api->uploadFile($this->getChat(), $fileType, $fileName, $options);
     }
 
     /**
