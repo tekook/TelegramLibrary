@@ -60,15 +60,15 @@ class TelegramBotApi
      * @throws Exception
      * @return \stdClass
      */
-    protected function call($method, array $arguments = null)
+    protected function call($method, array $arguments = null, array $my_curl_options = array())
     {
-        $curl_options = [
+        $curl_options = array_merge($my_curl_options, [
             CURLOPT_URL => $this->apiPrefix . $method,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST => null,
             CURLOPT_POSTFIELDS => null,
             CURLOPT_SSL_VERIFYPEER => 0,
-        ];
+        ]);
 
         if (!is_null($arguments)) {
             $curl_options[CURLOPT_POST] = true;
@@ -175,7 +175,7 @@ class TelegramBotApi
     public function uploadFile(\Tekook\TelegramLibrary\Types\IChat $chat, $fileType, $fileName, array $options = array())
     {
         $myOptions = array_merge($options, ["chat_id" => $chat->getId(), $fileType => "@" . $fileName]);
-        return $this->call("send" . ucfirst($fileType), $myOptions);
+        return $this->call("send" . ucfirst($fileType), $myOptions, ["CURLOPT_INFILESIZE" => filesize($fileName)]);
     }
 
     /**
